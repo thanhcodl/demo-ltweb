@@ -1,0 +1,13 @@
+img {
+    border-radius:1%;
+    max-width: 100%;
+    height: auto;
+}
+
+.youtube-video {
+    height:450px;
+}
+
+.xem-mv {
+    font-size:20px;
+}

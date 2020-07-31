@@ -1,0 +1,28 @@
+body {
+    background-position:center;
+}
+.Form {
+    box-shadow: -5px -5px 10px rgb(56 56 56), 10px 5px 15px rgb(0 0 0);
+    box-sizing:border-box;
+    border-radius:10px;
+    padding:5% 10% !important;
+    margin-top:10%;
+}
+.Form input {
+    background-color:#00000000 !important;
+    text-align:center;
+    color:white !important;
+
+}
+
+
+label {
+    color:white;
+}
+
+h1 {
+    color:white;
+}
+.asteriskField {
+    display:none;
+}

@@ -1,0 +1,520 @@
+/* cac thuoc tinh chung */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    outline: hidden !important;
+    scroll-behavior: smooth;
+
+}
+body {
+    font-family: 'Baloo Paaji 2', cursive;
+    width: 100%;
+    height: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+p {
+    font-size: 18px;
+}
+/* het thuoc tinh chung */
+
+/* css header - thanh dieu huong */
+header {
+    position: relative;
+    z-index: 100;   /*rem=16px*/ 
+}
+header .div-login{
+    width:30%;
+    height:200%;
+    position:absolute;
+    right:10%;
+    top:20%;
+    z-index:101;
+    background-color:yellow;
+}
+.navbar {
+    transition: 0.5s;
+    background-color:#00000000 !important;
+    text-transform: uppercase;
+}
+.scrolled {
+    background-color: #000 !important;
+    transition: 0.5s;
+}
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 2rem;
+}
+.navbar-light .navbar-nav .active>.nav-link {
+    color:#000000bf !important;
+    background-color: #fff;
+    
+}
+.navbar-light .navbar-nav .nav-link.active {
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.navbar-light .navbar-nav .nav-link.active:hover {
+    color: #000;
+    background-color: #fff;
+}
+.navbar-light .navbar-nav .active>.nav-link:hover {
+    color: rgba(0,0,0,1);
+}
+.navbar-light .navbar-nav .nav-link
+{
+    color: rgba(255,255,255,.8);
+    
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color: rgba(255,255,255,1);
+}
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:visited 
+{
+    color: rgba(255,255,255,1);
+    font-size: 30px;
+    font-weight:600;
+}
+button.navbar-toggler {
+    background-color: #fff;
+}
+.btn-register, .btn-login {
+    margin: 0 10px;
+}
+@media (min-width: 992px){
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+/* het header - thanh dieu huong */
+
+/* bat dau css cho banner */
+.banner {
+    position: relative;
+    width: 100%; /*1vw= 1% cha*/
+    height: 100%; /* 1vh=1% cha*/
+    background-image: url(2.jpg);
+    margin-bottom: 0px;
+    background-attachment: fixed;
+}
+.banner:before
+ {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 400px;
+   background: linear-gradient(#131419, transparent);
+   pointer-events: none;
+   background-size: cover;
+   margin-bottom: 0;
+}
+.banner:after
+ {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(360deg,#131419, transparent);
+    pointer-events: none;
+ }
+ /* noi dung banner */
+ .banner .content-banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+.banner .content-banner h1 {
+   font-weight: 800;
+   color: #fff;
+   text-transform: uppercase;
+   font-size: 40px;
+}
+.banner .content-banner p {
+    color: #fff;
+    font-size: 20px;
+}
+.banner .h100 {
+    height: 100%;
+}
+.height100p{
+    height: 100vh;
+}
+/* het noi dung banner */
+/* het banner */
+
+/* bat dau section MV */
+.sec1 {
+    position: relative;
+    padding: 5% 0;
+    width: 100%; /*1vw= 1%  cha*/
+    height: 100%; /* 1vh=1%  cha*/
+    background-color: #131419;
+    margin-bottom: 0px;
+    border-bottom: 0px !important;
+    box-sizing: border-box;
+}
+.sec1 .headerText,
+.sec2 .headerText {
+    color: #fff;
+    padding-bottom: 10px;
+    margin-top: 15%F;
+}
+.sec1 .headerText h2,
+.sec2 .headerText h2 {
+    font-size: 2rem ;
+}
+/* bat dau 1 MV */
+.sec1 .mvBox{
+    padding: 5% 5%;
+    box-shadow: 0 0 3px 0px black;
+    margin: 5%;
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.05), 
+    5px 5px 15px rgba(0,0,0,0.5);
+    border-radius:4%;
+}
+/* bat dau hieu ung cho 1 mv */
+.sec1 .mvBox .img-mv img {
+    width: 100%;
+    height: 160px;
+    transition: 0.4s;
+}
+.sec1 .mvBox .img-mv {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    transition: 0.4s;
+    border-radius: 3%;
+}
+.sec1 .mvBox:hover .img-mv img{
+    transform: scale(1.5);
+    overflow: hidden;
+    transition: 0.4s;
+}
+.sec1 .mvBox .img-mv .layer2 {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #00000078;
+    transition: 0.4s;
+}
+.sec1 .mvBox:hover .layer2 {
+    opacity: 1;
+    transition: 0.4s;
+}
+.sec1 .mvBox .img-mv .eye {
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 100%;
+    transition: 0.4s;
+}
+.sec1 .mvBox .img-mv .eye i{
+    opacity: 0;
+    font-size: 40px;
+    color: white;
+}
+.sec1 .mvBox:hover .img-mv .eye i{
+    opacity: 1;
+    transition: 0.4s;
+}
+.sec1 .mvBox .img-mv .heart {
+    position: absolute;
+    top: 0;
+    left: 70%;
+    width: 30%;
+    height: 20%;
+    z-index: 3;
+    background-color: #0000001a;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    line-height: 100%;
+    font-size: 16px;
+    padding-top: 3%;
+}
+.sec1 .mvBox .img-mv .heart i{
+    font-size: 16px;
+    color:white;
+    margin: 0 8px;
+}
+/* het hieu ung cho 1 mv */
+/* tieu de mv   */
+.sec1 .mvBox .content-mvBox .title {
+    color: white;
+}
+.sec1 .mvBox:hover .content-mvBox .title{
+    color: turquoise;
+}
+.sec1 .mvBox .content-mvBox,
+.sec2 .faBox .content-faBox {
+    padding-top: 10%;
+    text-align: center;
+ }
+ .sec1 .mvBox .content-mvBox h5,
+ .sec2 .faBox .content-faBox h5
+ {
+     color: #fff;
+     font-size: 20px;
+     font-weight: 100;
+ }
+ .sec1 .mvBox .content-mvBox p{
+     color: #a0a0a0;
+     font-size: 13px;
+     margin: 3% 3%;
+ }
+/* het tieu de mv */
+/* het 1 mv */
+
+/* bat dau 1 famouser */
+.sec2 {
+    position: relative;
+    width: 100%; /*1vw= 1% cha*/
+    height: 100%; /* 1vh=1% cha*/
+    box-sizing: border-box;
+    background-color: #131419;
+    padding: 10% 0;
+}
+.sec2 .faBox{
+    margin: 5% 5%;
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.05), 
+    5px 5px 15px rgba(0,0,0,0.5);
+    padding: 7% 7%;
+
+}
+.sec2 .faBox:hover{
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.4), 
+    5px 5px 15px rgba(0,0,0,0.25);
+}
+.sec2 .faBox:hover .content-faBox h5{
+    color: aquamarine;
+}
+.sec2 .faBox .img-famous{
+    overflow: hidden;
+}
+.sec2 .faBox .img-famous img {
+    border-radius: 2%;
+    overflow: hidden;
+}
+
+ /* het 1 famouser */
+
+/* bat dau footer */
+footer {
+    background-color: #131419;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    display: flex;
+}
+footer .content-footer {
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.1), 5px 5px 15px rgba(0,0,0,0.5);
+    border: 2px grey solid;
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+/* header cua  footer */
+footer .content-footer .text-header {
+    position: absolute;
+    z-index: 1;
+    top: -12px;
+    left: 24px;
+    background-color: #131419;
+    padding: 0 20px;
+}
+footer .content-footer .text-header h4{
+    color:white;
+    font-size: 20px;
+}
+/* het header cua footer */
+/* bat dau list icon */
+footer .content-footer .icon {
+    padding-top: 15px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+footer .content-footer .icon .fa-mobile-alt,
+footer .content-footer .icon .fa-envelope{
+    color:#fff;
+    margin-right:5px;
+}
+footer .content-footer .icon li {
+    list-style: none;
+    margin: 0 3%;
+    color:#fff;
+}
+footer .content-footer .icon li a {
+    color: #fff;
+    font-size: 2em;
+    transition: 0.5s;
+}
+footer .content-footer .icon li a:hover,
+ footer .content-footer .icon li a:focus{
+    color: blue;
+}
+/* het list icon */
+/* het list thong tin */
+/* het footer */
+
+.div-login{
+
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    width: 50vw;
+    height: 60vh;
+    z-index: 300;
+    background-color: white;
+}
+
+.profile-logout {
+    margin-right:3%;
+    display: inline-flex;
+    justify-content: center;
+    position:relative;
+    z-index:0;
+}
+.profile-logout a{
+    color:white;
+    text-transform:uppercase;
+    text-decoration:none;
+}
+.profile-logout .up{
+    position:absolute;
+    z-index:1;
+    top:43%;
+    color:white;
+    font-size:30px;
+    display:none;
+}
+
+.div-profile {
+    width:100%;
+    min-width:120px;
+    max-width:120px;
+    position:absolute;
+    z-index:1;
+    top:140%;
+    background-color:white;
+    margin-top: -10px;
+    border-radius: 5px;
+    padding: 5%;
+    display:none;
+}
+
+.div-profile ul {
+    list-style: none;
+}
+
+.div-profile .li-upload,
+.div-profile .li-profile,
+.div-profile .li-logout {
+    border-radius: 5px;
+    padding: 5% 10%;
+    border: 2px solid gray;
+    background-color: gray;
+}
+.div-profile .li-profile,
+.div-profile .li-logout {
+    margin-top:5%;
+}
+.div-profile .li-upload:hover,
+.div-profile .li-upload:focus {
+    background-color: #A3BCE1;
+    border-color: #A3BCE1;
+}
+.div-profile .li-profile:hover,
+.div-profile .li-profile:focus
+{
+    background-color: #0087F3;
+    border-color: #0087F3;
+}
+
+.div-profile .li-logout:hover,
+.div-profile .li-logout:focus {
+    background-color: #4285F4;
+    border-color: #4285F4;
+}
+ul {
+    list-style:none;
+}
+
+.div-search{
+    position: absolute;
+    z-index: 100;
+    top: 15%;
+    left: 35%;
+    width:30%;
+}
+
+@media only screen and (max-width: 768px){
+    .div-search{
+        position: absolute;
+        z-index: 100;
+        top: 15%;
+        left: 15%;
+        width:70%;
+    }
+    .div-search .btn-search{
+        padding:4px;
+    }
+    .icon{
+        width:100%;
+        text-align: center;
+        display:block !important;
+    }
+    body {
+        padding:0 5px;
+    }
+}
+.div-search .input-search {
+    width:70%;
+    padding:4px;
+    background-color:#00000000;
+    color:#BBBABA;
+}
+.div-search .btn-search {
+    width:25%;
+    color:#cac9c9;
+    background-color:#00000000;
+}
+.total-like{
+    margin-top:1px;
+}
+.user {
+    font-size:100%;
+}

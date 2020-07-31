@@ -1,0 +1,16 @@
+.Form {
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.05), 5px 5px 15px rgba(0,0,0,0.5);
+    box-sizing:border-box;
+    padding:2% 5%;
+    color:white;
+}
+
+body {
+
+}
+input {
+    text-align:center;
+}
+#cke_id_description_MV {
+    width:100% !important;
+}

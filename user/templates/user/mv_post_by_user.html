@@ -1,0 +1,60 @@
+{% extends 'mv/base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'user/mv_post_by_user.css' %}">
+<div class="container mt-5">
+    <div class="row ">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="media p-2 px-5 profile-info">
+                <a class="d-flex" href="{{ profile.img.url }}">
+                    <img src="{{ profile.img.url }}" alt="" class="profile-img">
+                </a>
+                <div class="media-body ml-3 pt-3">
+                    <h5 class="text-light ">
+                        {% if profile.user.last_name %}
+                            {{ profile.user.last_name }} {{ profile.user.first_name }}
+                        {% else %}
+                            {{ profile.user.username }}
+                        {% endif %}
+
+                    </h5>
+                    <p class="text-light py-0 my-0">Email: {{ profile.user.email }}</p>
+                    <p class="text-light py-0 my-0">Giới tính: {{ profile.gender }}</p>
+                    <p class="text-light py-0 my-0">Tham gia từ: {{ profile.time_join }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <p class="text-light posted mb-0">Các bài đã đăng </p>
+    </div>
+
+    <div class="row">
+        {% for mv in lst_mv %}
+        <div class="col-sm-4" class="mvBox" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="mvBox">
+                <a href="{% url 'mv:detail_mv' mv.slug %}">
+                    <div class="img-mv">
+                        <img class="img-fluid" src="{{ mv.img_MV.url }}" alt="">
+                        <div class="layer2"></div>
+                        <div class="eye"><i class="far fa-eye"></i></div>
+                        <div class="heart"><i class="fa fa-thumbs-o-up" aria-hidden="true">{{ total_likes }}</i>
+                            <p class="total-like">{{ mv.likes.all.count }}</p></div>
+                    </div>
+                </a>
+                <div class="content-mvBox">
+                    <h5><a class="title text-light" href="{% url 'mv:detail_mv' mv.slug %}">{{ mv.name_MV }}</a></h5>
+                    <p>{{ mv.singer_MV }} </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

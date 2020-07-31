@@ -1,0 +1,142 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block title %}Đăng nhập{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'user/login.css' %}">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form action="" method="post" class="Form text-center">
+                {% csrf_token %}
+                <h1>Đăng nhập</h1>
+                {{ form|crispy }}
+                {{ form.errors }}
+                <button type="submit" class="btn btn-outline-primary mt-2">Đăng nhập</button>
+                <div class="facebook-google mt-3">
+                    <ul>
+                        <li class="facebook"><a href="{% provider_login_url 'facebook' method='oauth2'%}">
+                             facebook
+                        </a></li>
+                        <li class="mt-2 google"><a href="{% provider_login_url 'google'%}">
+                             google
+                        </a></li>
+                    </ul>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('label[for="id_password"]').text("Mật khẩu");
+        $('label[for="id_username"]').text("Tên đăng nhập");
+
+        $('#id_username').attr('placeholder', 'Tên đăng nhập');
+        $('#id_password').attr('placeholder', 'Mật khẩu');
+    });
+
+
+</script>
+{% endblock %}
+
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <title>Mview</title>-->
+<!--    &lt;!&ndash; Required meta tags &ndash;&gt;-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
+
+<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>-->
+
+<!--    <link rel="stylesheet" href="{% static 'user/login.css' %}">-->
+<!--    <script src="https://code.jquery.com/jquery-3.5.0.js"-->
+<!--            integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>-->
+<!--</head>-->
+
+<!--<body class="body" data-spy="scroll" data-target=".navbar" data-offset="500">-->
+<!--&lt;!&ndash;<header>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="navbar-brand" href="#">Mview</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"&ndash;&gt;-->
+<!--&lt;!&ndash;                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">&ndash;&gt;-->
+<!--&lt;!&ndash;            <span class="navbar-toggler-icon"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="collapse navbar-collapse" id="navbarSupportedContent">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ul class="navbar-nav mr-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-link" href="#home">trang chủ</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-link" href="#mv">review mv</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-link" href="#famous">người nổi tiếng</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-link" href="#footer">about</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--&lt;!&ndash;            </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="btn-register btn btn-outline-success my-2 my-sm-0" type="button">Đăng kí</button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="btn-login btn btn-outline-success my-2 my-sm-0" type="button">Đăng nhập</button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </nav>&ndash;&gt;-->
+<!--&lt;!&ndash;</header>&ndash;&gt;-->
+
+<!--<form action="" method="post" class="Form">-->
+<!--    {% csrf_token %}-->
+<!--    <h1>Đăng nhập</h1>-->
+<!--    {{ form.as_p }}-->
+<!--    {{ form.errors }}-->
+<!--    <input type="submit" value="submit">-->
+<!--    <p>-->
+<!--        Tiếp tục với <a href="{% provider_login_url 'facebook' method='oauth2'%}">facebook</a>,-->
+<!--        <a href="{% provider_login_url 'google'%}">google</a>-->
+<!--    </p>-->
+
+<!--</form>-->
+
+<!--&lt;!&ndash; Optional JavaScript &ndash;&gt;-->
+<!--&lt;!&ndash; jQuery first, then Popper.js, then Bootstrap JS &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+<!--        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"-->
+<!--        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"-->
+<!--        crossorigin="anonymous"></script>-->
+
+<!--<script src="https://kit.fontawesome.com/1010e56f2f.js" crossorigin="anonymous"></script>-->
+<!--<script type="text/javascript">-->
+<!--        $(document).scroll(function () {-->
+<!--            $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());-->
+<!--        });-->
+
+<!--</script>-->
+<!--<script src="https://unpkg.com/aos@next/dist/aos.js"></script>-->
+<!--<script>-->
+<!--        AOS.init();-->
+
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+

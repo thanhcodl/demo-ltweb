@@ -1,0 +1,100 @@
+{% extends 'user/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %} Hồ sơ {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'user/profile.css' %}">
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-2 col-sm-4"></div>
+        <div class="col-8 col-sm-4 pb-3 profile text-light">
+            <div class="top text-center">
+                {% if user.profile.img %}
+                <a href="{{ user.profile.img.url }}"><img class="img d-inline-block" src="{{ user.profile.img.url }}" alt=""></a>
+                {% endif %}
+                <div class="body d-block mt-1">
+                    <h5>{{ name }}</h5>
+                    <p class="email">{{ user.email }}</p>
+                </div>
+            </div>
+            <form action="" class=" mt-2 text-center" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+                <button type="submit" class="btn btn-info btn-update">Cập nhật</button>
+            </form>
+        </div>
+        <div class="col-2 col-sm-4"></div>
+            <p class="gender">{{user.profile.gender}}</p>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <p class="float-left text-light posted">Các bài đã đăng</p>
+        </div>
+    </div>
+
+    <div class="row">
+        {% if lst_mv %}
+        {% for mv in lst_mv %}
+            <div class="col-sm-4" class="mvBox" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="mvBox">
+                    <a href="{% url 'mv:detail_mv' mv.slug %}">
+                        <div class="img-mv">
+                            <img class="img-fluid" src="{{ mv.img_MV.url }}" alt="">
+                            <div class="layer2"></div>
+                            <div class="eye"><i class="far fa-eye"></i></div>
+                            <div class="heart"><i class="fa fa-thumbs-o-up" aria-hidden="true">{{ total_likes }}</i>
+                                <p class="total-like">{{ mv.likes.all.count }}</p></div>
+                        </div>
+                    </a>
+                    <div class="content-mvBox">
+                        <h5><a class="title text-light" href="{% url 'mv:detail_mv' mv.slug %}">{{ mv.name_MV }}</a></h5>
+                        <p>{{ mv.singer_MV }} </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.asteriskField').remove();
+        $('.form-text').remove();
+
+        let username= $('h5').html();
+        $('#id_username').attr('value', username);
+        $('.remove').remove();
+
+        let email= $('.email').html();
+        $('#id_email').attr('value', email);
+        $('.email').remove();
+
+        let gender=$('.gender').html();
+        $('.gender').remove();
+        if (gender == 'Nữ')
+            {
+                $('[value="Nữ"]').attr('selected','');
+                console.log(123);
+            }
+        else if (gender == 'Nam'){
+            $('[value="Nam"]').attr('selected','');
+             }
+        else {
+            $('[value="Giới tính thứ ba"]').attr('selected','');
+        }
+
+
+    });
+</script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+        AOS.init();
+</script>
+{% endblock %}

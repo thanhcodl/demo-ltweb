@@ -1,0 +1,37 @@
+{% extends 'mv/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Đăng bài{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'mv/upload.css' %}">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <form action="" method="post" enctype="multipart/form-data" class="Form text-center rounded">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-outline-primary">Xem trước</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.asteriskField').remove();
+        $('label').css('color', 'white');
+
+        $('label[for="id_name_MV"]').text('Tên MV');
+        $('label[for="id_singer_MV"]').text('Ca sĩ thể hiện');
+        $('label[for="id_intro_MV"]').text('Giới thiệu MV');
+        $('label[for="id_img_MV"]').text('Ảnh bìa MV');
+        $('label[for="id_description_MV"]').text('Review về MV');
+        $('label[for="id_link_Youtube"]').text('Liên kết xem MV(youtube)');
+
+     });
+</script>
+{% endblock %}

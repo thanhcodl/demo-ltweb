@@ -1,0 +1,372 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>VIEW</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>-->
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+    <link rel="stylesheet" href="{% static 'mv/home.css' %}">
+
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+                    var data = ["Boston Celtics", "Chicago Bulls", "Miami Heat", "Orlando Magic", "Atlanta Hawks", "Philadelphia Sixers", "New York Knicks", "Indiana Pacers", "Charlotte Bobcats", "Milwaukee Bucks", "Detroit Pistons", "New Jersey Nets", "Toronto Raptors", "Washington Wizards", "Cleveland Cavaliers"];
+
+            $("#search").autocomplete({
+                source: '{% url 'mv:autosearch' %}',
+
+            });
+        });
+
+
+
+
+    </script>
+
+</head>
+
+<body class="body" data-spy="scroll" data-target=".navbar" data-offset="500">
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="{% url 'mv:home' %}">View</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#v-pop">V-Pop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#k-pop">k-pop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#us-ua">us-uk</a>
+                </li>
+            </ul>
+            <div class="profile-logout text-center">
+                {% if user.is_authenticated %}
+                <div class="user-name text-light">
+                    {% if user.last_name %}
+                    <p class="nav-item user m-0 text-light">{{ user.last_name }} {{ user.first_name }}</p>
+                    {% else %}
+                    <p class="nav-item user m-0 text-light">{{ user.username }}</p>
+                    {% endif %}
+                </div>
+                <div class="up">
+                    <i class="fas fa-sort-up"></i>
+                </div>
+                <div class="div-profile">
+                    <ul class="m-0">
+                        <li class="li-upload"><a href="{% url 'mv:upload' %}">Đăng bài</a></li>
+                        <li class="li-profile"><a href="{% url 'user:profile' %}">Hồ sơ</a></li>
+                        <li class="li-logout"><a href="{% url 'user:logout' %}?next={{ request.path }}">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+                {% else %}
+                <div class="div_login">
+                    <ul>
+                        <li><a class="text-center text-light" href="{% url 'user:login' %}?next={{ request.path }}">Đăng
+                            nhập</a></li>
+                        <li><a class="text-center text-light" href="{% url 'user:register' %}?next={{ request.path }}">Đăng
+                            kí</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+
+
+</header>
+
+<div class="div-search">
+        <form action="{% url 'mv:search' %}" method="get">
+            <input type="text" placeholder="Tìm kiếm" id="search" class="input-search" name="search">
+            <button type="submit" class="btn btn-primary btn-search">Tìm kiếm</button>
+        </form>
+    </div>
+
+<div class="jumbotron jumbotron-fluid height100p banner" id="home">
+    <div class="container h100">
+        <div class="content-banner h100">
+            <div>
+                <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">Music Video</h1>
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                    Là các clip âm nhạc, video âm nhạc, video ca nhạc. Đây là một dạng phim ngắn kết hợp với âm thanh
+                    bài hát cùng hình ảnh được sản xuất với mục đích nghệ thuật.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<section class="sec1" id="v-pop">
+    <div class="container">
+        <div class="row">
+            <div class="offset-sm-1 col-sm-10">
+                <div class="headerText text-center">
+                    <br>
+                    <br>
+                    <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">V-Pop</h2>
+                    <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">Còn gọi là nhạc pop Việt Nam,
+                        nhạc trẻ Việt Nam hay nhạc xanh trong tiếng Việt, là một thể loại tân nhạc trong công cuộc
+                        hiện đại hóa âm nhạc Việt Nam, sử dụng ngôn ngữ Việt hoặc có thể khác, hoặc có thể kết
+                        hợp cả hai, do người Việt sáng tác và biên soạn nhạc
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            {% for mv in lst_v_pop %}
+            <div class="col-sm-4">
+                <div class="mvBox" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <a href="{% url 'mv:detail_mv' mv.slug %}">
+                        <div class="img-mv">
+                            <img class="img-fluid" src="{{ mv.img_MV.url }}" alt="">
+                            <div class="layer2"></div>
+                            <div class="eye"><i class="far fa-eye"></i></div>
+                            <div class="heart">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <p class="total-like">{{ mv.likes.all.count }}</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="content-mvBox">
+                        <h5><a class="title" href="{% url 'mv:detail_mv' mv.slug %}">{{ mv.name_MV }}</a></h5>
+                        <p>{{ mv.singer_MV }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                <div class="row">
+                    <div class="col-sm-10"></div>
+                    <div class="col-sm-2">
+                        <a href="{% url 'mv:v-pop' %}">Xem thêm ...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec2 sec1" id="k-pop">
+    <div class="container">
+        <div class="row">
+            <div class="offset-sm-2 col-sm-8">
+                <div class="headerText text-center">
+                    <br>
+                    <br>
+                    <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">K-Pop</h2>
+                    <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+                        Còn được gọi là Kayo hay Gayo, ở Việt Nam còn gọi là nhạc Hàn, là một thể loại âm nhạc
+                        có nguồn gốc từ Hàn Quốc đặc trưng bởi rất nhiều các yếu tố nghe nhìn trực quan
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            {% for mv in lst_k_pop %}
+            <div class="col-sm-4">
+                <div class="mvBox" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <a href="{% url 'mv:detail_mv' mv.slug %}">
+                        <div class="img-mv">
+                            <img class="img-fluid" src="{{ mv.img_MV.url }}" alt="">
+                            <div class="layer2"></div>
+                            <div class="eye"><i class="far fa-eye"></i></div>
+                            <div class="heart">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <p class="total-like">{{ mv.likes.all.count }}</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="content-mvBox">
+                        <h5><a class="title" href="{% url 'mv:detail_mv' mv.slug %}">{{ mv.name_MV }}</a></h5>
+                        <p>{{ mv.singer_MV }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="row">
+                    <div class="col-sm-10"></div>
+                    <div class="col-sm-2">
+                        <a href="{% url 'mv:k-pop' %}">Xem thêm ...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec3 sec1" id="us-ua">
+    <div class="container">
+        <div class="row">
+            <div class="offset-sm-1 col-sm-10">
+                <div class="headerText text-center">
+                    <br>
+                    <br>
+                    <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">US-UK</h2>
+                    <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+                        Là một thuật ngữ phổ biến ở Việt Nam dùng để chỉ nền âm nhạc đại chúng của đa số các
+                        quốc gia nói tiếng Anh là Hoa Kỳ (Mỹ) và Vương quốc Liên hiệp Anh và Bắc Ireland (Anh Quốc)
+                        cũng như một số quốc gia châu Âu và Mỹ Latinh khác, thường bao gồm các thể loại nhạc
+                        như: pop, rock, R&B, hip hop, nhạc đồng quê, nhạc điện tử, nhạc dance,...
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            {% for mv in lst_us_uk %}
+            <div class="col-sm-4">
+                <div class="mvBox" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <a href="{% url 'mv:detail_mv' mv.slug %}">
+                        <div class="img-mv">
+                            <img class="img-fluid" src="{{ mv.img_MV.url }}" alt="">
+                            <div class="layer2"></div>
+                            <div class="eye"><i class="far fa-eye"></i></div>
+                            <div class="heart">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <p class="total-like">{{ mv.likes.all.count }}</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="content-mvBox">
+                        <h5><a class="title" href="{% url 'mv:detail_mv' mv.slug %}">{{ mv.name_MV }}</a></h5>
+                        <p>{{ mv.singer_MV }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="row">
+                    <div class="col-sm-10"></div>
+                    <div class="col-sm-2">
+                        <a href="{% url 'mv:us-uk' %}">Xem thêm ...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <section class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="content-footer">
+                    <div class="text-header">
+                        <h4>Liên hệ</h4>
+                    </div>
+                    <ul class="icon">
+                        <li><a href="https://www.facebook.com/profile.php?id=100009200913282"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><i class="fas fa-mobile-alt"></i>0354374111</li>
+                        <li><i class="fas fa-envelope"></i>thanh.pmt1305@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script src="https://kit.fontawesome.com/1010e56f2f.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+        $(document).scroll(function () {
+<!--        thêm class 'scrolled' cho thanh navbar-->
+            $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+          });
+
+
+
+
+</script>
+
+<script>
+    $(document).ready(function(){
+         $(".profile-logout").hover(function(){
+           $(".up").css("display", "inline-block");
+           $(".div-profile").css("display", "inline");
+         }, function(){
+            $(".up").css("display", "none");
+            $(".div-profile").css("display", "none");
+         });
+
+        $(".div-profile").mouseover(function(){
+            $(".up").css("display", "inline-block");
+            $(".div-profile").css("display", "inline");
+        });
+        $(".div-profile").mouseout(function(){
+            $(".up").css("display", "none");
+            $(".div-profile").css("display", "none");
+        });
+
+        $(".up").mouseover(function(){
+            $(".up").css("display", "inline-block");
+            $(".div-profile").css("display", "inline");
+        });
+        $(".up").mouseout(function(){
+            $(".up").css("display", "none");
+            $(".div-profile").css("display", "none");
+        });
+
+        $('#search').attr('placeholder', 'Nhập tên mv');
+    });
+
+
+
+
+
+
+
+
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+        AOS.init();
+
+
+
+
+</script>
+
+</body>
+
+</html>

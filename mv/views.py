@@ -141,9 +141,9 @@ class lst_Vpop(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        top = ModelMV.objects.filter(category_MV='V-Pop').order_by('likes')
+        top = ModelMV.objects.filter(category_MV='V-Pop').order_by('-likes')
         context['top'] = top[:3]
-        lst = ModelMV.objects.filter(category_MV='V-Pop').order_by('view')
+        lst = ModelMV.objects.filter(category_MV='V-Pop').order_by('-view')
         context['lst'] = lst
         context['active'] = 'v-pop'
         return context
@@ -157,9 +157,9 @@ class lst_Kpop(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        top = ModelMV.objects.filter(category_MV='K-Pop').order_by('likes')
+        top = ModelMV.objects.filter(category_MV='K-Pop').order_by('-likes')
         context['top'] = top[:3]
-        lst = ModelMV.objects.filter(category_MV='K-Pop').order_by('view')
+        lst = ModelMV.objects.filter(category_MV='K-Pop').order_by('-view')
         context['lst'] = lst
         context['active'] = 'k-pop'
         return context
@@ -173,9 +173,9 @@ class lst_UsUk(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        top = ModelMV.objects.filter(category_MV='US-UK').order_by('likes')
+        top = ModelMV.objects.filter(category_MV='US-UK').order_by('-likes')
         context['top'] = top[:3]
-        lst = ModelMV.objects.filter(category_MV='US-UK').order_by('view')
+        lst = ModelMV.objects.filter(category_MV='US-UK').order_by('-view')
         context['lst'] = lst
         context['active'] = 'us-uk'
         return context

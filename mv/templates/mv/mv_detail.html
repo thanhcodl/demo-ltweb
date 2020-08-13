@@ -53,7 +53,7 @@
 
             </div>
             <div class="col-sm-5 col-5 text-center">
-                {% if user.is_authenticated %}
+
                 <form action="{% url 'mv:like_mv' mv.slug %}" method="post">
                     {% csrf_token %}
                     {% if user not in mv.likes.all %}
@@ -63,11 +63,9 @@
                     <button type="submit" class="btn btn-danger px-2 py-1" name="mv-id" value="{{ mv.id }}">Unlike
                     </button>
                     {% endif %}
-                    <strong class="text-light"> {{ mv.likes.all.count }} Like{{ mv.likes.all.count|pluralize}}</strong>
+                    <strong class="text-light"> {{ mv.likes.all.count }} like{{ mv.likes.all.count|pluralize}}</strong>
                 </form>
-                {% else %}
-                <a href="{% url 'user:login' %}?next={{request.path}}">Vui lòng đăng nhập để like</a>
-                {% endif %}
+
             </div>
             <div class="col-sm-2 p-0 col-3">
                 <p class="text-light float-right">{{ mv.view }} lượt xem</p>

@@ -1,0 +1,50 @@
+body {
+    background-position:center;
+}
+.Form {
+    box-shadow: -5px -5px 10px rgb(56 56 56), 10px 5px 15px rgb(0 0 0);
+    box-sizing:border-box;
+    border-radius:10px;
+    padding:5% 10% !important;
+    margin-top:10%;
+}
+.Form input {
+    background-color:#00000000 !important;
+    text-align:center;
+    color:white !important;
+}
+
+label, h1{
+    color:white;
+}
+span.asteriskField,
+ul.errorlist {
+    display:none;
+}
+.facebook-google li{
+    box-sizing:border-box;
+    padding:5px 0px;
+}
+.facebook-google .facebook {
+    border:1px #3B5998 solid;
+}
+.facebook-google .facebook:hover,
+.facebook-google .facebook:focus{
+    background-color:#3B5998;
+}
+.facebook-google .facebook:hover a,
+.facebook-google .facebook:focus a {
+    color:white;
+}
+
+.facebook-google .google {
+    border:1px #DF4A32 solid;
+}
+.facebook-google .google:hover,
+.facebook-google .google:focus {
+    background-color:#DF4A32;
+}
+.facebook-google .google:hover a,
+.facebook-google .google:focus a {
+    color:white;
+}

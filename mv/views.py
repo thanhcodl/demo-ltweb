@@ -115,15 +115,19 @@ class UpdateMV(generic.UpdateView):
         return reverse('mv:mv_detail_frontview', kwargs={'the_slug': self.slug})
 
 
+@login_required()
 def Like_MV(request, the_slug):
-    mv = get_object_or_404(ModelMV, id=request.POST.get('mv-id'))
-
-    if mv.likes.filter(id=request.user.id).exists():
-        mv.likes.remove(request.user)
+    if request.method == 'GET':
+        return HttpResponseRedirect(reverse('mv:detail_mv', args=[str(the_slug)]))
     else:
-        mv.likes.add(request.user)
+        mv = get_object_or_404(ModelMV, id=request.POST.get('mv-id'))
 
-    return HttpResponseRedirect(reverse('mv:detail_mv', args=[str(the_slug)]))
+        if mv.likes.filter(id=request.user.id).exists():
+            mv.likes.remove(request.user)
+        else:
+            mv.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('mv:detail_mv', args=[str(the_slug)]))
 
 
 class CreateMV(generic.CreateView):
@@ -191,3 +195,4 @@ class mv_api(APIView):
         mv = ModelMV.objects.get(slug=the_slug)
         my_data = Get_mv(mv)
         return Response(data=my_data.data, status=status.HTTP_200_OK)
+

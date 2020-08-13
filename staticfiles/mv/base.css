@@ -1,0 +1,289 @@
+/* cac thuoc tinh chung */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    outline: hidden !important;
+    scroll-behavior: smooth;
+
+}
+body {
+    font-family: 'Baloo Paaji 2', cursive;
+    width: 100%;
+    height: 100%;
+    background-color: #131419;
+}
+a:hover {
+    text-decoration: none;
+}
+
+/* het thuoc tinh chung */
+
+/* css header - thanh dieu huong */
+
+
+header {
+    width: 100%;
+    height: 11vh;
+    box-sizing: border-box;
+}
+.navbar {
+    transition: 0.5s;
+    background-color:#131419 !important;
+    text-transform: uppercase;
+
+}
+.scrolled {
+    background-color: #000 !important;
+    transition: 0.5s;
+}
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 2rem;
+}
+.navbar-light .navbar-nav .active>.nav-link {
+    color:#000000bf !important;
+    background-color: #fff;
+
+}
+.navbar-light .navbar-nav .nav-link.active {
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.navbar-light .navbar-nav .nav-link.active:hover {
+    color: #000;
+    background-color: #fff;
+}
+.navbar-light .navbar-nav .active>.nav-link:hover {
+    color: rgba(0,0,0,1);
+}
+.navbar-light .navbar-nav .nav-link
+{
+    color: rgba(255,255,255,.8);
+
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color: rgba(255,255,255,1);
+}
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:visited
+{
+    color: rgba(255,255,255,1);
+    font-size: 30px;
+    font-weight:600;
+}
+button.navbar-toggler {
+    background-color: #fff;
+}
+.btn-register, .btn-login {
+    margin: 0 10px;
+}
+@media (min-width: 992px){
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+/* het header - thanh dieu huong */
+
+
+
+/* bat dau footer */
+footer {
+    background-color: #131419;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    display: flex;
+}
+footer .content-footer {
+    /* box-shadow: -5px -5px 10px rgba(255,255,255,0.1), 5px 5px 15px rgba(0,0,0,0.5); */
+    border: 2px grey solid;
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+/* header cua  footer */
+footer .content-footer .text-header {
+    position: absolute;
+    z-index: 1;
+    top: -12px;
+    left: 24px;
+    background-color: #131419;
+    padding: 0 20px;
+}
+footer .content-footer .text-header h4{
+    color:white;
+    font-size: 20px;
+}
+/* het header cua footer */
+/* bat dau list icon */
+footer .content-footer .icon {
+    padding-top: 15px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+footer .content-footer .icon li {
+    list-style: none;
+    margin: 0 3%;
+}
+footer .content-footer .icon li a {
+    color: #fff;
+    font-size: 2em;
+    transition: 0.5s;
+}
+footer .content-footer .icon li a:hover,
+ footer .content-footer .icon li a:focus{
+    color: blue;
+}
+footer .content-footer .icon .fa-mobile-alt,
+footer .content-footer .icon .fa-envelope{
+    color:#fff;
+    margin-right:5px;
+}
+/* het list icon */
+/* het footer */
+
+.div-login{
+
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    width: 50vw;
+    height: 60vh;
+    z-index: 300;
+    background-color: white;
+}
+
+.profile-logout {
+    margin-right:3%;
+    display: inline-flex;
+    justify-content: center;
+    position:relative;
+    z-index:0;
+}
+.profile-logout a{
+    color:white;
+    text-transform:uppercase;
+    text-decoration:none;
+}
+.profile-logout .up{
+    position:absolute;
+    z-index:1;
+    top:46%;
+    color:white;
+    font-size:30px;
+    display:none;
+}
+
+.div-profile {
+    width:100%;
+    min-width:120px;
+    max-width:120px;
+    position:absolute;
+    z-index:1;
+    top:155%;
+    background-color: white;
+    margin-top: -10px;
+    border-radius: 5px;
+    padding: 5%;
+    display:none;
+}
+
+.div-profile ul {
+    list-style: none;
+}
+
+.div-profile .li-upload,
+.div-profile .li-profile,
+.div-profile .li-logout {
+    border-radius: 5px;
+    padding: 5% 10%;
+    border: 2px solid gray;
+    background-color: gray;
+}
+.div-profile .li-profile,
+.div-profile .li-logout {
+    margin-top:5%;
+}
+.div-profile .li-upload:hover,
+.div-profile .li-upload:focus {
+    background-color: pink;
+    border-color: pink
+}
+.div-profile .li-profile:hover,
+.div-profile .li-profile:focus
+{
+    background-color: pink;
+    border-color: pink
+}
+
+.div-profile .li-logout:hover,
+.div-profile .li-logout:focus {
+    background-color: pink;
+    border-color: pink;
+}
+ul {
+    list-style:none;
+}
+.div-search{
+    margin-top: 7%;
+    margin-left: 35%;
+    width: 30%;
+}
+@media only screen and (max-width: 768px){
+    .div-search{
+    margin-top: 20%;
+    margin-left: 15%;
+    width: 70%;
+    }
+    .div-search .btn-search{
+        padding:3px;
+    }
+    .top{
+        padding-left:48%;
+    }
+    .views{
+        padding-left:36%;
+    }
+     .icon{
+        width:100%;
+        text-align: center;
+        display:block !important;
+    }
+    body {
+        padding:0 5px;
+    }
+}
+.div-search .input-search {
+    width:70%;
+    padding:4px;
+    background-color:#00000000;
+    color:#cac9c9;
+}
+.div-search .btn-search {
+    width:25%;
+    color:#cac9c9;
+    background-color:#00000000;
+}
+.ui-menu {
+    z-index:1031 !important;
+}
+#search {
+    text-align:justify;
+}
+.total-like{
+    margin-top:1px;
+}
+

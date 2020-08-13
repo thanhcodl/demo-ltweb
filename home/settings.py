@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     'ckeditor',
     # upload image ckeditor
     'ckeditor_uploader',
+
+    #django-rest-framework
+    'rest_framework',
 ]
 CKEDITOR_UPLOAD_PATH = "uploads/"
 

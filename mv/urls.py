@@ -15,4 +15,5 @@ urlpatterns = [
     path('v-pop/', views.lst_Vpop.as_view(), name='v-pop'),
     path('k-pop/', views.lst_Kpop.as_view(), name='k-pop'),
     path('us-uk/', views.lst_UsUk.as_view(), name='us-uk'),
+    path('api/<slug:the_slug>/', views.mv_api.as_view(), name='api-getall'),
 ]

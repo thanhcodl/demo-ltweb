@@ -5,8 +5,12 @@ from django import views
 from django.urls import reverse
 from django.views import generic
 from unidecode import unidecode
-
 from .models import ModelMV
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import Get_mv
 
 
 class home(views.View):
@@ -179,3 +183,11 @@ class lst_UsUk(generic.ListView):
         context['lst'] = lst
         context['active'] = 'us-uk'
         return context
+
+
+# rest_framework
+class mv_api(APIView):
+    def get(self, request, the_slug):
+        mv = ModelMV.objects.get(slug=the_slug)
+        my_data = Get_mv(mv)
+        return Response(data=my_data.data, status=status.HTTP_200_OK)

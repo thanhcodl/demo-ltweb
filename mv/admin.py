@@ -8,7 +8,7 @@ from .models import ModelMV
 
 # Register your models here.
 class CustomModelMV(admin.ModelAdmin):
-    list_display = ['name_MV', 'time_Post']
+    list_display = ['name_MV', 'category_MV', 'time_Post']
 
 
 admin.site.register(ModelMV, CustomModelMV)

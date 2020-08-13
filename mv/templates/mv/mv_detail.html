@@ -45,7 +45,8 @@
             <div class="col-sm-1 col-0"></div>
             <div class="col-sm-3 p-0 col-4">
                 <!--                share on facebook-->
-                <div class="fb-share-button" data-href="https://demo-ltweb1.herokuapp.com/mv/{{ mv.slug }}" data-layout="button"
+                <div class="fb-share-button" data-href="https://demo-ltweb1.herokuapp.com/mv/{{ mv.slug }}"
+                     data-layout="button"
                      data-size="large"><a target="_blank"
                                           href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemo-ltweb1.herokuapp.com%2F&amp;src=sdkpreparse"
                                           class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
@@ -76,8 +77,9 @@
         <div class="row mt-2">
             <div class="col-sm-12">
                 <!--                comment plugin facebook-->
-                <div class="fb-comments" data-href="https://demo-ltweb1.herokuapp.com/mv/{{ mv.slug }}/" data-numposts="10"
-                     data-width="100%" data-colorscheme="dark">
+                </div>
+                <div class="fb-comments white" data-href="https://demo-ltweb1.herokuapp.com/mv/{{ mv.slug }}/"
+                     data-colorscheme="dark" data-numposts="5" data-width="100%">
 
                 </div>
             </div>
@@ -86,4 +88,5 @@
     </div>
 
 </main>
+
 {% endblock %}

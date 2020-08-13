@@ -66,6 +66,18 @@ class mv_detail_frontview(generic.DetailView):
     slug_url_kwarg = 'the_slug'
     slug_field = 'slug'
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['mv'] = ModelMV.objects.get(slug=self.kwargs['the_slug'])
+
+        if context['mv'].author_MV.profile.user.last_name:
+            name = context['mv'].author_MV.profile.user.last_name + ' ' + context[
+                'mv'].author_MV.profile.user.first_name
+            context['name'] = name
+        else:
+            context['name'] = context['mv'].author_MV.profile.user.username
+        return context
+
 
 def base(request):
     return render(request, 'mv/base.html')
